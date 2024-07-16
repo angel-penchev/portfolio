@@ -1,5 +1,12 @@
 {
-  "HomePage": {
-    "name": "Angel Penchev"
+  "pages": {
+    "home-page": {
+      "name": "Angel Penchev"
+    }
+  },
+  "components": {
+    "two-way-timeline": {
+      "TUES": "TUES"
+    }
   }
 }
