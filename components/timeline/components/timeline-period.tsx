@@ -2,15 +2,16 @@ import { cn } from '@/lib/utils';
 import { RevealCard } from '@/components/reveal-card/reveal-card';
 import { CanvasRevealEffect } from '@/components/ui/canvas-reveal-effect';
 import React from 'react';
-import { TimelineSide } from '@/components/two-way-timeline/two-way-timeline';
+import { TimelineSide } from '@/components/timeline/timeline';
 
-interface TimelinePeriodItem {
+export interface TimelinePeriodItem {
   name: string;
   description: string;
   imageUrl: string;
   colorClass: string;
   dateStart: Date;
   dateEnd: Date | null;
+  side: TimelineSide;
 }
 
 export function TimelinePeriod(

@@ -1,11 +1,12 @@
 import { cn } from '@/lib/utils';
 import React from 'react';
-import { TimelineSide } from '@/components/two-way-timeline/two-way-timeline';
+import { TimelineSide } from '@/components/timeline/timeline';
 
-interface TimelinePointItem {
+export interface TimelinePointItem {
   date: Date;
   name: string;
   description: string;
+  side: TimelineSide;
 }
 
 export function TimelinePoint(
