@@ -1,9 +1,13 @@
 import React from 'react';
 import { getTranslations } from 'next-intl/server';
 import { Badge } from '@/components/ui/badge';
-import { CanvasRevealEffect } from '@/components/ui/canvas-reveal-effect';
-import { RevealCard } from '@/components/reveal-card/reveal-card';
-import { cn } from '@/lib/utils';
+import { TimelinePeriod } from '@/components/two-way-timeline/components/timeline-period';
+import { TimelinePoint } from '@/components/two-way-timeline/components/timeline-point';
+
+export enum TimelineSide {
+  Top,
+  Bottom,
+}
 
 export async function TwoWayTimeline() {
   const t = await getTranslations('components.two-way-timeline');
@@ -89,6 +93,14 @@ export async function TwoWayTimeline() {
     },
   ];
 
+  const bottomPoints = [
+    {
+      name: t('fmicodes-2024-organizer.name'),
+      description: t('fmicodes-2024-organizer.description'),
+      date: new Date('2024-03-16'),
+    },
+  ];
+
   const bottom = [
     {
       name: t('telebidpro'),
@@ -107,7 +119,6 @@ export async function TwoWayTimeline() {
       dateEnd: null,
     },
   ];
-  console.log(bottom);
 
   const minYear = top.reduce((acc, item) => {
     return Math.min(acc.dateStart.getFullYear(), item.dateStart.getFullYear());
@@ -122,84 +133,15 @@ export async function TwoWayTimeline() {
       <div className="relative w-1/2 p-0 xl:h-80 xl:w-auto">
         <ol className="absolute inset-0 ml-auto mt-auto flex h-full w-3/4 flex-col xl:h-3/4 xl:w-full xl:flex-row">
           {topPoints.map((item, index) => {
-            const previousEndTimestamp = index > 0 ? topPoints[index - 1].date?.getTime() : minDate.getTime();
-            const gapTime = previousEndTimestamp ? item.date.getTime() - previousEndTimestamp : 0;
-            const margin = `${(gapTime / totalTime) * 100}%`;
-
-            return (
-              <>
-                {/* I need to this atrocity because percentage margins don't take the parent size vertically*/}
-                <div className="block xl:hidden" style={{ height: margin }} />
-                <div className="hidden xl:block" style={{ width: margin }} />
-
-                <li className="h-0 w-full xl:h-full xl:w-0">
-                  <div
-                    key={`${item.name}-line`}
-                    className="h-px bg-gradient-to-l from-transparent to-primary xl:h-full xl:w-px xl:bg-gradient-to-t"
-                  >
-                    <div
-                      key={`${item.name}-point`}
-                      className="absolute h-4 w-4 -translate-x-2 -translate-y-2 transform rounded-full bg-primary"
-                    />
-
-                    <span className="absolute -translate-x-1/2 -translate-y-8 transform text-xs">{index}</span>
-                  </div>
-                </li>
-              </>
-            );
+            const previousEndTimestamp = index > 0 ? topPoints[index - 1].date.getTime() : minDate.getTime();
+            return TimelinePoint(item, previousEndTimestamp, totalTime, TimelineSide.Top);
           })}
         </ol>
 
         <ol className="absolute inset-0 ml-auto mt-auto flex h-full w-1/2 flex-col xl:h-1/2 xl:w-full xl:flex-row">
           {top.map((item, index) => {
-            const time = (item.dateEnd ? item.dateEnd.getTime() : Date.now()) - item.dateStart.getTime();
-            const size = `${(time / totalTime) * 100}%`;
-
-            const previousEndTimestamp = index > 0 ? top[index - 1].dateEnd?.getTime() : minDate.getTime();
-            const gapTime = previousEndTimestamp ? item.dateStart.getTime() - previousEndTimestamp : 0;
-            const margin = `${(gapTime / totalTime) * 100}%`;
-
-            return (
-              <>
-                {/* I need to this atrocity because percentage margins don't take the parent size vertically*/}
-                <div className="block xl:hidden" style={{ height: margin }} />
-                <div className="hidden xl:block" style={{ width: margin }} />
-
-                <li
-                  key={`${item.name}-vertical`}
-                  className="mask-gradient-left block xl:hidden"
-                  style={{ height: size }}
-                >
-                  <RevealCard className="block w-full bg-primary" title={item.name} imageUrl={item.imageUrl}>
-                    <CanvasRevealEffect
-                      animationSpeed={4.5}
-                      containerClassName={item.colorClass}
-                      colors={[[180, 180, 180]]}
-                      showGradient={false}
-                    />
-                  </RevealCard>
-                </li>
-
-                <li
-                  key={`${item.name}-horizontal`}
-                  className={cn('mask-gradient-top hidden xl:block', item.dateEnd ? 'mask-gradient-right' : '')}
-                  style={{ width: size }}
-                >
-                  <RevealCard
-                    className="block h-full border-primary bg-primary"
-                    title={item.name}
-                    imageUrl={item.imageUrl}
-                  >
-                    <CanvasRevealEffect
-                      animationSpeed={4.5}
-                      containerClassName={item.colorClass}
-                      colors={[[180, 180, 180]]}
-                      showGradient={false}
-                    />
-                  </RevealCard>
-                </li>
-              </>
-            );
+            const previousItem = index > 0 ? top[index - 1] : null;
+            return TimelinePeriod(item, previousItem, totalTime, minDate, TimelineSide.Top);
           })}
         </ol>
       </div>
@@ -214,6 +156,22 @@ export async function TwoWayTimeline() {
           </>
         ))}
       </ol>
+
+      <div className="relative w-1/2 p-0 xl:h-80 xl:w-auto">
+        <ol className="absolute inset-0 mb-auto mr-auto flex h-full w-3/4 flex-col xl:h-3/4 xl:w-full xl:flex-row">
+          {bottomPoints.map((item, index) => {
+            const previousEndTimestamp = index > 0 ? bottomPoints[index - 1].date.getTime() : minDate.getTime();
+            return TimelinePoint(item, previousEndTimestamp, totalTime, TimelineSide.Bottom);
+          })}
+        </ol>
+
+        <ol className="absolute inset-0 mb-auto mr-auto flex h-full w-1/2 flex-col xl:h-1/2 xl:w-full xl:flex-row">
+          {bottom.map((item, index) => {
+            const previousItem = index > 0 ? bottom[index - 1] : null;
+            return TimelinePeriod(item, previousItem, totalTime, minDate, TimelineSide.Bottom);
+          })}
+        </ol>
+      </div>
     </div>
   );
 }
