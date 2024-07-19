@@ -33,7 +33,13 @@ export function RevealCard({
 
       <div className="relative z-20 h-full">
         <div className="mx-auto flex h-full w-full items-center justify-center text-center transition group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0">
-          <Image src={imageUrl} alt={title} width={200} height={200} className="h-2/3 w-2/3" />
+          <Image
+            src={imageUrl}
+            alt={title}
+            width={200}
+            height={200}
+            className="h-5/6 w-5/6 dark:invert xl:h-2/3 xl:w-2/3"
+          />
         </div>
       </div>
     </div>

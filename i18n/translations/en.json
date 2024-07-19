@@ -1,12 +1,106 @@
 {
-  "pages": {
-    "home-page": {
-      "name": "Angel Penchev"
-    }
-  },
   "components": {
-    "two-way-timeline": {
-      "TUES": "TUES"
+    "business-card": {
+      "name": "Angel Penchev",
+      "title": "Full-Stack Software Developer"
+    },
+    "personal-timeline": {
+      "tues": {
+        "name": "Technological School \"Electronic Systems\"",
+        "description": ""
+      },
+      "sofia-university": {
+        "name": "Sofia University \"St. Kliment Ohridski\"",
+        "description": ""
+      },
+      "telebidpro": {
+        "name": "TelebidPro",
+        "description": ""
+      },
+      "haemimont": {
+        "name": "Haemimont AD",
+        "description": ""
+      },
+      "hacktues-3": {
+        "name": "HackTUES 3",
+        "long-name": "Participation in HackTUES 3",
+        "description": ""
+      },
+      "fce": {
+        "name": "FCE",
+        "long-name": "Completed First Certificate in English (FCE)",
+        "description": ""
+      },
+      "hack-30xtues": {
+        "name": "Hack 30xTUES",
+        "long-name": "Participation in Hack 30xTUES",
+        "description": ""
+      },
+      "hacktues-5": {
+        "name": "HackTUES 5",
+        "long-name": "Participation in HackTUES 5",
+        "description": ""
+      },
+      "tues-fest-2019": {
+        "name": "TUES Fest 2019",
+        "long-name": "TUES Fest 2019 - Schwarz IT Hub Sponsorship Award",
+        "description": ""
+      },
+      "cae": {
+        "name": "CAE",
+        "long-name": "Completed Certificate in Advanced English (CAE)",
+        "description": ""
+      },
+      "tues-site-admin": {
+        "name": "tues.bg administrator",
+        "long-name": "Administrator of the Technological School \"Electronic Systems\" (TUES) website",
+        "description": ""
+      },
+      "tues-fest-2020": {
+        "name": "TUES Fest 2020",
+        "long-name": "TUES Fest 2020 - Special Award for \"Better Future\"",
+        "description": ""
+      },
+      "hacktues-6": {
+        "name": "HackTUES 6",
+        "long-name": "First Place in HackTUES 6",
+        "description": ""
+      },
+      "tues-fest-2021": {
+        "name": "TUES Fest 2021",
+        "long-name": "TUES Fest 2021 - Ocado Technology Sponsorship Award",
+        "description": ""
+      },
+      "national-computer-networking-olympiad-2021": {
+        "name": "NCNO 2021",
+        "long-name": "Fourth Place in National Computer Networking Olympiad 2021",
+        "description": ""
+      },
+      "ccna": {
+        "name": "CCNA",
+        "long-name": "Completed Cisco Certified Network Associate (CCNA) Certification",
+        "description": ""
+      },
+      "tues-science-fair-2021": {
+        "name": "TUES Science Fair 2021",
+        "long-name": "Participation in TUES Science Fair 2021",
+        "description": ""
+      },
+      "fmicodes-2022": {
+        "name": "FMI'{Codes'} 2022",
+        "long-name": "Third Place in FMI'{Codes'} 2022",
+        "description": ""
+      },
+      "fmicodes-2023": {
+        "name": "FMI'{Codes'} 2023",
+        "long-name": "Organizer of FMI'{Codes'} 2023",
+        "description": ""
+      },
+      "fmicodes-2024": {
+        "name": "FMI'{Codes'} 2024",
+        "long-name": "Organizer of FMI'{Codes'} 2024",
+        "description": ""
+      }
     }
   }
 }

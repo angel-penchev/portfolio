@@ -1,5 +1,106 @@
 {
-  "HomePage": {
-    "name": "Ангел Пенчев"
+  "components": {
+    "business-card": {
+      "name": "Ангел Пенчев",
+      "title": "Full-Stack софтуерен разработчик"
+    },
+    "personal-timeline": {
+      "tues": {
+        "name": "Технологично училище \"Електронни системи\"",
+        "description": ""
+      },
+      "sofia-university": {
+        "name": "Софийски университет \"Св. Климент Охридски\"",
+        "description": ""
+      },
+      "telebidpro": {
+        "name": "TelebidPro",
+        "description": ""
+      },
+      "haemimont": {
+        "name": "Хемимонд АД",
+        "description": ""
+      },
+      "hacktues-3": {
+        "name": "HackTUES 3",
+        "long-name": "Участие в HackTUES 3",
+        "description": ""
+      },
+      "fce": {
+        "name": "FCE",
+        "long-name": "Завършен First Certificate in English (FCE)",
+        "description": ""
+      },
+      "hack-30xtues": {
+        "name": "Hack 30xTUES",
+        "long-name": "Участие в Hack 30xTUES",
+        "description": ""
+      },
+      "hacktues-5": {
+        "name": "HackTUES 5",
+        "long-name": "Участие в HackTUES 5",
+        "description": ""
+      },
+      "tues-fest-2019": {
+        "name": "TUES Fest 2019",
+        "long-name": "TUES Fest 2019 - Schwarz IT Hub спонсорска награда",
+        "description": ""
+      },
+      "cae": {
+        "name": "CAE",
+        "long-name": "Завършен Certificate in Advanced English (CAE)",
+        "description": ""
+      },
+      "tues-site-admin": {
+        "name": "tues.bg администратор",
+        "long-name": "Администратор на сайта на Технологично училище \"Електронни системи\" (ТУЕС)",
+        "description": ""
+      },
+      "tues-fest-2020": {
+        "name": "TUES Fest 2020",
+        "long-name": "TUES Fest 2020 - Специална награда за \"По-добро бъдеще\"",
+        "description": ""
+      },
+      "hacktues-6": {
+        "name": "HackTUES 6",
+        "long-name": "Първо място в HackTUES 6",
+        "description": ""
+      },
+      "tues-fest-2021": {
+        "name": "TUES Fest 2021",
+        "long-name": "TUES Fest 2021 - Ocado Technology спонсорска награда",
+        "description": ""
+      },
+      "national-computer-networking-olympiad-2021": {
+        "name": "НОКМ 2021",
+        "long-name": "Четвърто място на Национална олимпиада по компютърни мрежи 2021",
+        "description": ""
+      },
+      "ccna": {
+        "name": "CCNA",
+        "long-name": "Завършена Cisco Certified Network Associate (CCNA) сертификация",
+        "description": ""
+      },
+      "tues-science-fair-2021": {
+        "name": "ТУЕС Фестивал на науката 2021",
+        "long-name": "Участие в TUES Science Fair 2021",
+        "description": ""
+      },
+      "fmicodes-2022": {
+        "name": "FMI'{Codes'} 2022",
+        "long-name": "Трето място в FMI'{Codes'} 2022",
+        "description": ""
+      },
+      "fmicodes-2023": {
+        "name": "FMI'{Codes'} 2023",
+        "long-name": "Организатор на FMI'{Codes'} 2023",
+        "description": ""
+      },
+      "fmicodes-2024": {
+        "name": "FMI'{Codes'} 2024",
+        "long-name": "Организатор на FMI'{Codes'} 2024",
+        "description": ""
+      }
+    }
   }
 }

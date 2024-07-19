@@ -3,9 +3,12 @@ import React from 'react';
 import { TimelineSide } from '@/components/timeline/timeline';
 
 export interface TimelinePointItem {
-  date: Date;
   name: string;
+  longName?: string;
   description: string;
+  date: Date;
+  icon?: React.ReactNode;
+  isImportant: boolean;
   side: TimelineSide;
 }
 
@@ -35,18 +38,25 @@ export function TimelinePoint(
           <div
             key={`${item.name}-point`}
             className={cn(
-              'absolute h-4 w-4 -translate-x-2 transform rounded-full bg-primary',
-              side === TimelineSide.Top ? 'top-0 -translate-y-2' : 'bottom-0 translate-y-2',
+              'absolute flex h-6 w-6 transform items-center justify-center rounded-full bg-primary text-background',
+              side === TimelineSide.Top
+                ? '-translate-x-3 -translate-y-3 xl:top-0'
+                : 'right-0 -translate-y-3 translate-x-3 xl:bottom-0 xl:right-auto xl:-translate-x-3 xl:translate-y-3',
+              item.isImportant ? 'scale-150' : '',
             )}
-          />
+          >
+            {item.icon}
+          </div>
 
           <span
             className={cn(
-              'absolute -translate-x-1/2 transform text-xs',
-              side === TimelineSide.Top ? 'top-0 -translate-y-8' : 'bottom-0 translate-y-8',
+              'absolute transform text-xs',
+              side === TimelineSide.Top
+                ? '-translate-x-1/2 -translate-y-8 xl:top-0'
+                : 'right-0 -translate-y-8 translate-x-1/2 xl:bottom-0 xl:right-auto xl:-translate-x-1/2 xl:translate-y-8',
             )}
           >
-            {item.name[0]}
+            {item.name}
           </span>
         </div>
       </li>
