@@ -2,7 +2,8 @@
   "components": {
     "business-card": {
       "name": "Ангел Пенчев",
-      "title": "Full-Stack софтуерен разработчик"
+      "title": "Full-Stack софтуерен разработчик",
+      "lets-connect": "Свържите се"
     },
     "personal-timeline": {
       "tues": {

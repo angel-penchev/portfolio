@@ -2,7 +2,8 @@
   "components": {
     "business-card": {
       "name": "Angel Penchev",
-      "title": "Full-Stack Software Developer"
+      "title": "Full-Stack Software Developer",
+      "lets-connect": "Let's connect"
     },
     "personal-timeline": {
       "tues": {
