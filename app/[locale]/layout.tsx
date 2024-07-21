@@ -6,6 +6,7 @@ import { getMessages } from 'next-intl/server';
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/lib/providers/theme-provider';
+import { cn } from '@/lib/utils';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -25,7 +26,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={cn(inter.className, 'w-full overflow-x-clip')}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
         </ThemeProvider>
