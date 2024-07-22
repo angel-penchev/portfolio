@@ -1,12 +1,22 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
-import { LuMoonStar, LuPaintbrush, LuSun } from 'react-icons/lu';
+import { LuMoonStar, LuSun } from 'react-icons/lu';
+import { FaBrush } from 'react-icons/fa6';
 
 export function ThemeSwitchButton() {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <Button
@@ -15,7 +25,7 @@ export function ThemeSwitchButton() {
       }}
       variant="ghost"
     >
-      {theme === 'system' ? <LuPaintbrush /> : theme === 'dark' ? <LuMoonStar /> : <LuSun />}
+      {theme === 'system' ? <FaBrush /> : theme === 'dark' ? <LuMoonStar /> : theme === 'light' ? <LuSun /> : null}
     </Button>
   );
 }
