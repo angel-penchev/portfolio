@@ -4,12 +4,14 @@ import Image from 'next/image';
 import React from 'react';
 import { CardBody, CardContainer, CardItem } from '../ui/3d-card';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
+import { HoverBorderGradient } from '../ui/hover-border-gradient';
 
 export function BusinessCard() {
   const t = useTranslations('components.business-card');
   return (
     <CardContainer className="inter-var">
-      <CardBody className="grid h-auto w-auto gap-4 rounded-lg border bg-card p-4 text-card-foreground shadow-sm md:w-[70vw] md:grid-cols-2">
+      <CardBody className="grid h-auto w-[90vw] gap-4 rounded-lg border bg-card p-4 text-card-foreground shadow-sm sm:w-[70vw] sm:grid-cols-2">
         <CardItem translateZ="70" className="w-full">
           <Image
             src="/images/angel-penchev.jpeg"
@@ -29,12 +31,19 @@ export function BusinessCard() {
             <p className="text-md max-w-sm xl:text-xl">{t('title')}</p>
           </CardItem>
 
-          <CardItem
-            translateZ="80"
-            as="button"
-            className="rounded-xl bg-black px-4 py-2 text-xs font-bold text-white dark:bg-white dark:text-black"
-          >
-            {t('lets-connect')}
+          <CardItem translateZ="80">
+            <Link href="/connect" className="group">
+              <HoverBorderGradient
+                containerClassName="rounded-full"
+                as="button"
+                className="flex items-center space-x-2 bg-white text-black dark:bg-black dark:text-white"
+              >
+                <span className="flex flex-row items-center">
+                  {t('lets-connect')}
+                  <div className="ml-0 h-2.5 w-0 rounded-full bg-primary transition-all delay-150 duration-300 group-hover:ml-2 group-hover:block group-hover:w-2.5 group-hover:bg-green-500" />
+                </span>
+              </HoverBorderGradient>
+            </Link>
           </CardItem>
         </div>
       </CardBody>
