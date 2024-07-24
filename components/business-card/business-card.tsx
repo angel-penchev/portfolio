@@ -7,11 +7,15 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { HoverBorderGradient } from '../ui/hover-border-gradient';
 
-export function BusinessCard() {
+interface BusinessCardProps {
+  containerClassName?: string;
+}
+
+export function BusinessCard({ containerClassName }: BusinessCardProps) {
   const t = useTranslations('components.business-card');
   return (
-    <CardContainer className="inter-var">
-      <CardBody className="grid h-auto w-[90vw] gap-4 rounded-lg border bg-card p-4 text-card-foreground shadow-sm sm:w-[70vw] sm:grid-cols-2">
+    <CardContainer className="inter-var group/card" containerClassName={containerClassName}>
+      <CardBody className="grid h-auto w-[50rem] scale-75 gap-4 rounded-lg border bg-card p-4 text-card-foreground shadow-sm transition-transform group-hover/card:scale-100 sm:grid-cols-2">
         <CardItem translateZ="70" className="w-full">
           <Image
             src="/images/angel-penchev.jpeg"
@@ -22,13 +26,12 @@ export function BusinessCard() {
           />
         </CardItem>
 
-        <div className="flex flex-col justify-center gap-y-12">
-          <CardItem translateZ="60">
-            <CardItem translateZ="1000">
-              <h1 className="text-xl font-bold md:text-3xl">{t('name')}</h1>
+        <div className="flex flex-col items-center justify-center gap-y-12 text-center">
+          <CardItem translateZ="60" className="flex flex-col items-center justify-center gap-1">
+            <CardItem translateZ="1000" as="h1" className="text-2xl font-bold lg:text-4xl">
+              {t('name')}
             </CardItem>
-
-            <p className="text-md max-w-sm xl:text-xl">{t('title')}</p>
+            <p className="max-w-sm text-xs uppercase tracking-wide text-muted-foreground lg:text-sm">{t('title')}</p>
           </CardItem>
 
           <CardItem translateZ="80">
