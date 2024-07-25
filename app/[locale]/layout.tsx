@@ -4,11 +4,11 @@ import '../globals.css';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Noto_Sans } from 'next/font/google';
 import { ThemeProvider } from '@/lib/providers/theme-provider';
 import { cn } from '@/lib/utils';
 
-const inter = Inter({ subsets: ['latin'] });
+const noto = Noto_Sans({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -26,7 +26,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={cn(inter.className, 'w-full overflow-x-clip')}>
+      <body className={cn(noto.className, 'w-full overflow-x-clip')}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
         </ThemeProvider>
